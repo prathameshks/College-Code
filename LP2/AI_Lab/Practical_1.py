@@ -87,6 +87,7 @@ if __name__ == "__main__":
 
 
 """
+sample input 1
 
 4
 6
@@ -102,6 +103,8 @@ if __name__ == "__main__":
 3
 3
 3
+
+samnple input 2
 
 7
 6
