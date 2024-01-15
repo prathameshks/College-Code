@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel NavYug</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            top: 0;
+            position: fixed;
+            display: flex;
+            width: 100%;
+            background-color: rgb(255, 238, 219);
+            justify-content: space-between;
+        }
+
+        .logo {
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .temp-b {
+            border: 1px solid red;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            margin: 1rem;
+        }
+
+        .nav-links li {
+            list-style: none;
+            margin: 5px;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            background-color: rgba(252, 191, 79, 0.904);
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 10%;
+        }
+
+        .hero-section {
+            width: 100%;
+        }
+
+        .hero {
+            margin: 8rem;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .hero div {
+            padding: 1rem;
+        }
+
+        .hero-image {
+            vertical-align: middle;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-text {
+            width: 100%;
+        }
+
+        .hero-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            width: 100%;
+            margin: 0px;
+        }
+
+        footer {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            background-color: rgb(255, 243, 228);
+        }
+
+        .footer-info {
+            margin: 2rem;
+
+        }
+
+        .voidblock {
+            height: 500px;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="home">
+        <div class="logo">
+            NavYug
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero">
+            <div class="hero-text">
+                <div class="hero-heading">
+                    Get The Best Food Experiance <br> <i>In Your Life</i>
+                </div>
+                <div class="hero-desc">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit nostrum delectus accusamus, a
+                        optio quaerat similique, labore modi minima dicta veniam obcaecati nulla aperiam eligendi nam,
+                        totam aliquid excepturi ea?</p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./restaurants-banner.webp" alt="NavYug Photo Her0" />
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="voidblock">
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="voidblock">sample about</div>
+
+    </section>
+
+    <section id="contact">
+        <div class="voidblock">sample Contact</div>
+
+    </section>
+
+    <footer>
+        <div class="logo">
+            <span>
+                Hotel NavYug
+            </span>
+        </div>
+        <div class="">
+            <div class=""><b>Links</b></div>
+            <ul>
+                <li>Home</li>
+                <li>Menu</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="">
+            <div class="footer-info">
+                <div>
+                    <b>Address</b>
+                </div>
+                <div>
+                    404, Viman Nagar, Pune
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
