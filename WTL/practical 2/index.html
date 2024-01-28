@@ -6,112 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel NavYug</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            top: 0;
-            position: fixed;
-            display: flex;
-            width: 100%;
-            background-color: rgb(255, 238, 219);
-            justify-content: space-between;
-        }
-
-        .logo {
-            margin: 1rem;
-            padding: 1rem;
-        }
-
-        .temp-b {
-            border: 1px solid red;
-        }
-
-        .nav-links {
-            display: flex;
-            flex-direction: row;
-            margin: 1rem;
-        }
-
-        .nav-links li {
-            list-style: none;
-            margin: 5px;
-            justify-content: center;
-            align-items: center;
-            vertical-align: middle;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            padding: 10px;
-            margin: 5px;
-            background-color: rgba(252, 191, 79, 0.904);
-            border: 1px solid rgb(255, 255, 255);
-            border-radius: 10%;
-        }
-
-        .hero-section {
-            width: 100%;
-        }
-
-        .hero {
-            margin: 8rem;
-            display: flex;
-            flex-direction: row;
-        }
-
-        .hero div {
-            padding: 1rem;
-        }
-
-        .hero-image {
-            vertical-align: middle;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .hero-text {
-            width: 100%;
-        }
-
-        .hero-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 35px;
-            width: 100%;
-            margin: 0px;
-        }
-
-        footer {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            background-color: rgb(255, 243, 228);
-        }
-
-        .footer-info {
-            margin: 2rem;
-
-        }
-
-        .voidblock {
-            height: 500px;
-        }
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!--
+        Implement a web page index.html for any client website (e.g., a restaurant website project) using following:
+        a. HTML syntax: heading tags, basic tags and attributes, frames, tables, images, lists, links for text and images, forms etc. 
+        b. Use of Internal CSS, Inline CSS, External CSS
+    -->
     <header id="home">
         <div class="logo">
+
             NavYug
         </div>
         <ul class="nav-links">
@@ -129,30 +39,229 @@
                     Get The Best Food Experiance <br> <i>In Your Life</i>
                 </div>
                 <div class="hero-desc">
+                    <p>Lorem ipsum . Impedit nostrum delectus accusamus, a
+                        optio quaerat similique, labore modi aliquid dolor sit ametminima dicta veniam obcaecati nulla
+                        aperiam eligendi nam,
+                        totam consectetur, adipisicing elitexcepturi</p>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit nostrum delectus accusamus, a
                         optio quaerat similique, labore modi minima dicta veniam obcaecati nulla aperiam eligendi nam,
-                        totam aliquid excepturi ea?</p>
+                    </p>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./restaurants-banner.webp" alt="NavYug Photo Her0" />
+                <img src="./img/restaurants-banner.webp" alt="NavYug Photo Hero" />
             </div>
         </div>
     </section>
 
     <section id="menu">
-        <div class="voidblock">
+        <div class="menu-title">
+            <h2>Menu</h2>
+        </div>
+        <div class="menu-list">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/biryani.jpeg" alt="Biryani" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Chicken Biryani</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 200</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/burger.jpeg" alt="Burger" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Burger</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 100</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/jalebi.jpeg" alt="Jalebi" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Jalebi</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 50</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/pizza.jpeg" alt="Pizza" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Pizza</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 300</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/mutton.jpeg" alt="Mutton" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Mutton</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 400</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/puranpoli-aamras.jpeg" alt="Puranpoli-aamras" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Aamras PuranPoli </h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 100</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/rasmalai.jpeg" alt="Rasmaalai" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Rasmaalai</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 50</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="./img/vadapav.jpeg" alt="Vadapav" />
+                </div>
+                <div class="menu-item-desc">
+                    <div class="menu-item-heading">
+                        <h3>Vadapav</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        <h4>₹ 20</h4>
+                    </div>
+                    <div class="menu-item-desc">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div>
+                </div>
+                <div class="menu-add-to-cart">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+
+    </section>
+
+
+    <section id="about">
+        <div class="about">
+
+            <div class="about-section">
+                <h2>About Us</h2>
+                <p>Welcome to Hotel NavYug, where we provide an exceptional dining experience.</p>
+                <p>Started in 1856, we are committed to serving fresh and delicious food made with the finest
+                    ingredients.
+                </p>
+                <p>Our team of talented chefs and staff work tirelessly to ensure that every dish is prepared with
+                    utmost
+                    care and attention to detail.</p>
+                <p>At Hotel NavYug, we believe in creating a warm and inviting atmosphere for our guests, where they can
+                    relax and enjoy their meal.</p>
+                <p>Whether you are looking for a casual dining experience or a special occasion, we have a wide range of
+                    menu options to cater to your taste buds.</p>
+                <p>Visit us today and experience the perfect blend of taste, quality, and hospitality.</p>
+            </div>
         </div>
     </section>
 
-    <section id="about">
-        <div class="voidblock">sample about</div>
 
-    </section>
 
     <section id="contact">
-        <div class="voidblock">sample Contact</div>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Name" required>
 
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Message" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.682331552518!2d73.9144563148926!3d18.56788298737548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0d8a0e8f4e9%3A0x7e5e3a4b3f6e9b6d!2sViman%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1635367891237!5m2!1sen!2sin"
+                    style="border:0px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
     </section>
 
     <footer>
