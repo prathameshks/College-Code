@@ -7,9 +7,11 @@ header {
     top: 0;
     position: fixed;
     display: flex;
-    width: 100%;
+    width: 90%;
     background-color: rgb(255, 238, 219);
     justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .logo {
@@ -108,10 +110,13 @@ footer {
     align-items: center;
     margin: 4rem;
     padding: 4rem;
+    padding-top: 0px;
 }
 
 .menu-title {
     margin: 4rem;
+    padding: 4rem;
+    padding-bottom: 0px;
 }
 
 .menu-title h2 {
