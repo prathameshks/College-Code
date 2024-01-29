@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div class="calculator">
+            <div class="top-bar">
+                <h3>Calculator</h3>
+            </div>
+            <!-- <div class="history">
+                <div class="history-block">
+                    1 + 1 = 2
+                </div>
+                <div class="history-block">
+                    2 + 1 = 3
+                </div>
+                <div class="history-block">
+                    3 + 1 = 4
+                </div>
+            </div> -->
+            <div class="input-area">
+                <textarea name="input" id="input"></textarea>
+            </div>
+            <div class="key-area">
+                <div class="rows">
+                    <div class="key" onclick="btnFunction('^');">
+                        <button class="key-name">
+                            ^
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick('(');">
+                        <button class="key-name">
+                            (
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(')');">
+                        <button class="key-name">
+                            )
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnFunction('c');">
+                        <button class="key-name red">
+                            C
+                        </button>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="key" onclick="btnClick(7);">
+                        <button class="key-name">
+                            7
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(8);">
+                        <button class="key-name">
+                            8
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(9);">
+                        <button class="key-name">
+                            9
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick('/');">
+                        <button class="key-name">
+                            /
+                        </button>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="key" onclick="btnClick(4);">
+                        <button class="key-name">
+                            4
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(5);">
+                        <button class="key-name">
+                            5
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(6);">
+                        <button class="key-name">
+                            6
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick('*');">
+                        <button class="key-name">
+                            *
+                        </button>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="key" onclick="btnClick(1);">
+                        <button class="key-name">
+                            1
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(2);">
+                        <button class="key-name">
+                            2
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick(3);">
+                        <button class="key-name">
+                            3
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick('-');">
+                        <button class="key-name">
+                            -
+                        </button>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="key" onclick="btnClick(0);">
+                        <button class="key-name">
+                            0
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick('.');">
+                        <button class="key-name">
+                            .
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnFunction('=');">
+                        <button class="key-name green">
+                            =
+                        </button>
+                    </div>
+                    <div class="key" onclick="btnClick('+');">
+                        <button class="key-name">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
