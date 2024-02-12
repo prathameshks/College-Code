@@ -1,0 +1,85 @@
+body{
+    text-align: center;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    height: 400px;
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 5px #00000075;
+    overflow: hidden;
+
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.top-bar {
+    top: 2px;
+    height: 7%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history {
+    height: 25%;
+    background-color: yellow;
+}
+
+.input-area {
+    margin-top: 10px;
+    height: 15%;
+    /* background-color: green; */
+}
+
+#input {
+    width: 98%;
+    height: 100%;
+    resize: none;
+    font-size: 25px;
+    text-wrap: on;
+    cursor: default;
+    margin:auto;
+    border: none;
+}
+
+
+.key-area {
+    height: 70%;
+    /* background-color: bisque; */
+    margin-top: 10px;
+}
+
+.key {
+    width: 20%;
+    height: 50px;
+    margin: 1% 4%;
+    background-color: blue;
+}
+
+.key-name {
+    height: 100%;
+    width: 100%;
+
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
