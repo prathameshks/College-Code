@@ -1,5 +1,11 @@
 body{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 section{
     display: flex;
@@ -12,7 +18,8 @@ section{
     width: 300px;
     border: 1px solid gray;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px 5px #00000075;
+    /* box-shadow: 0px 0px 20px 5px #00000075; */
+    box-shadow: 0 0 20px rgb(71 70 70);
     overflow: hidden;
 
 }
@@ -71,7 +78,8 @@ section{
 .key-name {
     height: 100%;
     width: 100%;
-
+    font-size: large;
+    font-weight: 500 ;
 }
 
 .red {
