@@ -7476,43 +7476,35 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ol>
-<li>Locate open source data from the web.
-Dataset - Spaceship Titanic on <a href="https://www.kaggle.com">https://www.kaggle.com</a></li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Locate open source data from the web.</span>
+<span class="c1"># Dataset - Spaceship Titanic on https://www.kaggle.com</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ol start="2">
-<li>Provide a clear description of the data and its source (i.e., URL of the web site).
-URL: <a href="https://www.kaggle.com/code/muhammadhadi13/titanic-eda-model-application/">https://www.kaggle.com/code/muhammadhadi13/titanic-eda-model-application/</a>
-File train.csv - Personal records for about two-thirds (~8700) of the passengers, to be used as training data.
-Columns: PassengerId,HomePlanet,CryoSleep,Cabin,Destination,Age,VIP,RoomService,FoodCourt,ShoppingMall,Spa,VRDeck,Name,Transported</li>
-</ol>
-<p>PassengerId - A unique Id for each passenger. Each Id takes the form gggg_pp where gggg indicates a group the passenger is travelling with and pp is their number within the group. People in a group are often family members, but not always.
-HomePlanet - The planet the passenger departed from, typically their planet of permanent residence.
-CryoSleep - Indicates whether the passenger elected to be put into suspended animation for the duration of the voyage. Passengers in cryosleep are confined to their cabins.
-Cabin - The cabin number where the passenger is staying. Takes the form deck/num/side, where side can be either P for Port or S for Starboard.
-Destination - The planet the passenger will be debarking to.
-Age - The age of the passenger.
-VIP - Whether the passenger has paid for special VIP service during the voyage.
-RoomService, FoodCourt, ShoppingMall, Spa, VRDeck - Amount the passenger has billed at each of the Spaceship Titanic's many luxury amenities.
-Name - The first and last names of the passenger.
-Transported - Whether the passenger was transported to another dimension. This is the target, the column you are trying to predict.</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 2. Provide a clear description of the data and its source (i.e., URL of the web site).</span>
+<span class="c1"># URL: https://www.kaggle.com/code/muhammadhadi13/titanic-eda-model-application/</span>
+<span class="c1"># File train.csv - Personal records for about two-thirds (~8700) of the passengers, to be used as training data.</span>
+<span class="c1"># Columns: PassengerId,HomePlanet,CryoSleep,Cabin,Destination,Age,VIP,RoomService,FoodCourt,ShoppingMall,Spa,VRDeck,Name,Transported</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7536,18 +7528,19 @@ Transported - Whether the passenger was transported to another dimension. This i
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ol start="4">
-<li>Data Preprocessing: check for missing values in the data using pandas insult(), describe()
-function to get some initial statistics. Provide variable descriptions. Types of variable etc. Check
-the dimensions of the data frame.</li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 4. Data Preprocessing: check for missing values in the data using pandas insult(), describe() </span>
+<span class="c1"># function to get some initial statistics. Provide variable descriptions. Types of variable etc. Check </span>
+<span class="c1"># the dimensions of the data frame.</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7709,18 +7702,19 @@ dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ol start="5">
-<li>Data Formatting and Data Normalization: Summarize the types of variables by checking the
-data types (i.e., character, numeric, integer, factor, and logical) of the variables in the data set. If
-variables are not in the correct data type, apply proper type conversions.</li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 5. Data Formatting and Data Normalization: Summarize the types of variables by checking the </span>
+<span class="c1"># data types (i.e., character, numeric, integer, factor, and logical) of the variables in the data set. If </span>
+<span class="c1"># variables are not in the correct data type, apply proper type conversions.</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7850,18 +7844,19 @@ Name: Age, Length: 8693, dtype: int32
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ol start="6">
-<li>Turn categorical variables into quantitative variables in Python
-Convert the HomePlanet column to quantitative variables
-display the HomePlanet column before conversion</li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 6. Turn categorical variables into quantitative variables in Python</span>
+<span class="c1"># Convert the HomePlanet column to quantitative variables</span>
+<span class="c1"># display the HomePlanet column before conversion</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7941,7 +7936,6 @@ Name: HomePlanet, Length: 8693, dtype: object
 8691    1
 8692    1
 Name: HomePlanet, Length: 8693, dtype: int8
-
 </pre>
 </div>
 </div>
