@@ -1,0 +1,27 @@
+CREATE TABLE books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_title VARCHAR(100),
+    book_author VARCHAR(100),
+    book_price DECIMAL(5,2),
+    quantity INT
+);
+INSERT INTO books (book_title, book_author, quantity, book_price) VALUES
+('The White Tiger', 'Aravind Adiga', 202, 399.00),
+('The God of Small Things', 'Arundhati Roy', 199, 499.00),
+('Mbook_idnight\'s Children', 'Salman Rushdie', 981, 550.00),
+('A Suitable Boy', 'Vikram Seth', 993, 699.00),
+('Train to Pakistan', 'Khushwant Singh', 196, 299.00),
+('The Palace of Illusions', 'Chitra Banerjee Divakaruni', 2008, 350.00),
+('The Gubook_ide', 'R.K. Narayan', 358, 275.00),
+('The Immortals of Meluha', 'Amish Tripathi', 210, 450.00),
+('The Namesake', 'Jhumpa Lahiri', 203, 399.00),
+('Interpreter of Maladies', 'Jhumpa Lahiri', 500, 375.00);
+
+practical 5
+    │───index.txt
+    │───run.cmd
+    └───WEB-INF
+        │───web.xml
+        └───classes
+            │───MyServlet.class
+            └───MyServlet.java
