@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE employees [
+    <!ELEMENT employees (employee+)>
+    <!ELEMENT employee (id, name, department, salary)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT department (#PCDATA)>
+    <!ELEMENT salary (#PCDATA)>
+]>
+
+<?xml-stylesheet type="text/xsl" href="employees.xsl" ?>
+
+<employees xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="employees.xsd">
+    <employee>
+        <id>1</id>
+        <name>Aditya</name>
+        <department>Technician</department>
+        <salary>100000</salary>
+    </employee>
+    <employee>
+        <id>2</id>
+        <name>Akhilesh</name>
+        <department>Technical Support</department>
+        <salary>200000</salary>
+    </employee>
+    <employee>
+        <id>3</id>
+        <name>Parth</name>
+        <department>HR</department>
+        <salary>300000</salary>
+    </employee>
+    <employee>
+        <id>4</id>
+        <name>Prathamesh</name>
+        <department>Developer</department>
+        <salary>800000</salary>
+    </employee>
+    <employee>
+        <id>5</id>
+        <name>Sahil</name>
+        <department>Tester</department>
+        <salary>500000</salary>
+    </employee>
+    <employee>
+        <id>6</id>
+        <name>Kaustubh</name>
+        <department>CEO</department>
+        <salary>1</salary>
+    </employee>
+</employees>
+
