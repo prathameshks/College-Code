@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE college SYSTEM "college.dtd">
+<?xml-stylesheet type="text/xsl" href="college.xsl" ?>
+
+<college xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="college.xsd">
+    <teaching>
+        <id>19131A0556</id>
+        <name>Aditya</name>
+        <department>Computer Science</department>
+    </teaching>
+    <teaching>
+        <id>19131A05B4</id>
+        <name>Surya Prakash</name>
+        <department>Chemical</department>
+    </teaching>
+    <non-teaching>
+        <id>5079</id>
+        <name>Ranga</name>
+    </non-teaching>
+    <non-teaching>
+        <id>1090</id>
+        <name>Ajay Kumar</name>
+    </non-teaching>
+    <student>
+        <id>35</id>
+        <name>Venkatesh</name>
+        <department>CSE</department>
+        <year>3</year>
+	    <section>4</section>
+    </student>
+    <student>
+        <id>22</id>
+        <name>Srinivas</name>
+        <department>ECE</department>
+        <year>3</year>
+        <section>2</section>
+    </student>
+</college>
