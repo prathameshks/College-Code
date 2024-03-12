@@ -1,9 +1,9 @@
-
+# N-Queens Problem
 ans = [[]]
 def printBoard(arr):
     for a in arr:
         for b in a:
-            if(b): print(1, end=" ")
+            if(b): print('Q', end=" ")
             else: print('.',end=" ")
         print()
 
@@ -73,8 +73,9 @@ def main(n):
 
     solve(0,board,n)
 
-    print("Final Solution")
+    print("Final Solution Is:")
     printBoard(ans)
 
-main(4)
-main(8)
+if __name__ == "__main__":
+    n = int(input("Enter the value of n: "))
+    main(n)

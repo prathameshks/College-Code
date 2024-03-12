@@ -77,7 +77,7 @@ class practical_3 {
 
         for (int i = 0; i < n; i++) {
             if(vis[i] == 1){
-                int sv,ev,wv=999;
+                int sv=0,ev=0,wv=999;
                 boolean flag=false;
                 for (int j = 0; j < n; j++) {
                     if(mat[i][j] > 0){
@@ -105,6 +105,7 @@ class practical_3 {
         print2D(tree);
 
     }
+
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int ch=0;
