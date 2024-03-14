@@ -1,1 +1,3 @@
 xcopy '.\WTL\practical 5' 'C:\xampp\tomcat\webapps\practical 5\' /s /e /y
+
+xcopy '.\WTL\practical 6' 'C:\xampp\tomcat\webapps\practical 6\' /s /e /y
