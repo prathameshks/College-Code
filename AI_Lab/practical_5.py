@@ -1,6 +1,4 @@
-import pyttsx3
 import math
-
 import wolframalpha
 import wikipedia
 
@@ -9,32 +7,8 @@ sor, term = 0, None
 main_fns = ["sorry", "end",'read']
 
 def read():
-    # speak("ok finding that on web")
-    # data = search()
-    speak(listenedw)
-
-def speak(textmain):
-    engine = pyttsx3.init()  # object creation
-    engine.setProperty("rate", 150)  # setting up new voice rate
-    engine.setProperty("volume", 3.0)  # setting up volume level  between 0 and 1
-    voices = engine.getProperty("voices")
-    engine.setProperty(
-        "voice", voices[1].id
-    )  # changing index, changes voices. o for male, 1 for female
-    print(textmain)
-    # updatetextcomp(str(textmain))
-    try:
-        engine.say(textmain)
-        # engine.save_to_file('Hello World', 'test.mp3')
-        engine.runAndWait()
-        engine.stop()
-        return True
-    except:
-        engine.say("Something went wrong.")
-        engine.runAndWait()
-        engine.stop()
-        return False
-
+    data = search()
+    print(listenedw)
 
 def match(listened, mainfns=main_fns):
     global term
@@ -55,7 +29,6 @@ def match(listened, mainfns=main_fns):
     if listenedw in ["close", "quit", "exit", "stop", "stop listening"]:
         return "end"
     elif listenedw in greets:
-        # greet
         greetresp = [
             "Hello",
             "hi",
@@ -74,7 +47,6 @@ def match(listened, mainfns=main_fns):
     elif words[0].lower() in ["information", "search", "find"]:
         global wikidata
         wikidata = str(listenedw[int(len(words[0]) + 1) :])
-        # wikidata=str(listenedw)
         return "searchwiki"
 
     elif words[0].lower() == 'read':
@@ -99,26 +71,25 @@ def match(listened, mainfns=main_fns):
 
 
 def end():
-    speak("ok good bye")
+    print("ok good bye")
     exit()
 
 
 def greet():
-    speak(greeting)
+    print(greeting)
 
 
 def searchwiki():
-    speak("Searching Wikipedia...")
+    print("Searching Wikipedia...")
     results = wikipedia.summary(wikidata, sentences=2)
-    speak("According to Wikipedia")
-    speak(results)
+    print("According to Wikipedia")
+    print(results)
 
 
 def search(question):
     app_id = "6LJUGL-QGQXA75X53"
     client = wolframalpha.Client(app_id)
     res = client.query(question)
-    # print(res)
     if res["@success"]:
         pod0 = res["pod"][0]["subpod"]["plaintext"]
         if (question.lower()).startswith("tell"):
@@ -136,14 +107,13 @@ def search(question):
         return data
     else:
         data = str("can't get information.")
-        # sorry()
         return data
 
 
 def tell():
-    speak("ok finding that on web")
+    print("ok finding that on web")
     data = search(listenedw)
-    speak(data)
+    print(data)
 
 
 def sorry():
@@ -151,10 +121,9 @@ def sorry():
     sor += 1
     if sor > 3:
         exit()
-    speak("Sorry i didn't get that.")
+    print("Sorry i didn't get that.")
 
 
-# last
 def run(function):
     exec(str(function + "()"))
 
