@@ -1,0 +1,7 @@
+You get a ConnectionRefused Exception when there is a machine at the address specified, but there is no program listening on the specific TCP port the client is using -and there is no firewall in the way silently dropping TCP connection requests. If you do not know what a TCP connection request is, please consult the specification.
+
+Unless there is a configuration error at either end, a common cause for this is the Hadoop service isn't running.
+
+This stack trace is very common when the cluster is being shut down -because at that point Hadoop services are being torn down across the cluster, which is visible to those services and applications which haven't been shut down themselves. Seeing this error message during cluster shutdown is not anything to worry about.
+
+If the application or cluster is not working, and this message appears in the log, then it is more serious.

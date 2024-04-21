@@ -1,0 +1,276 @@
+prathamesh@PRATHAMESH:~$ sudo service ssh restart
+ * Restarting OpenBSD Secure Shell server sshd                                                                                           [ OK ]
+prathamesh@PRATHAMESH:~$ start-all.sh
+WARNING: Attempting to start all Apache Hadoop daemons as prathamesh in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [PRATHAMESH]
+2024-04-20 21:58:25,558 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Starting resourcemanager
+resourcemanager is running as process 654.  Stop it first.
+Starting nodemanagers
+prathamesh@PRATHAMESH:~$ mkdir practical_b1
+prathamesh@PRATHAMESH:~$ cd practical_b1/
+prathamesh@PRATHAMESH:~/practical_b1$ cat >WordCount.java
+package org.myorg;
+
+import java.io.IOException;
+import java.util.*;
+
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+import org.apache.hadoop.util.*;
+
+public class WordCount {
+
+    public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable> {
+        private final static IntWritable one = new IntWritable(1);
+        private Text word = new Text();
+
+        public void map(LongWritable key, Text value, OutputCollector<Text, IntWritable> output, Reporter reporter)
+                throws IOException {
+            String line = value.toString();
+            StringTokenizer tokenizer = new StringTokenizer(line);
+            while (tokenizer.hasMoreTokens()) {
+                word.set(tokenizer.nextToken());
+                output.collect(word, one);
+            }
+        }
+    }
+
+    public static class Reduce extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable> {
+        public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, IntWritable> output,
+                Reporter reporter) throws IOException {
+            int sum = 0;
+            while (values.hasNext()) {
+                sum += values.next().get();
+            }
+            output.collect(key, new IntWritable(sum));
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        JobConf conf = new JobConf(WordCount.class);
+        conf.setJobName("wordcount");
+        conf.setOutputKeyClass(Text.class);
+        conf.setOutputValueClass(IntWritable.class);
+
+        conf.setMapperClass(Map.class);
+        conf.setCombinerClass(Reduce.class);
+        conf.setReducerClass(Reduce.class);
+
+        conf.setInputFormat(TextInputFormat.class);
+        conf.setOutputFormat(TextOutputFormat.class);
+
+        FileInputFormat.setInputPaths(conf, new Path(args[0]));
+        FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+
+        JobClient.runJob(conf);
+    }
+}
+prathamesh@PRATHAMESH:~/practical_b1$ mkdir wordcount_classes
+prathamesh@PRATHAMESH:~/practical_b1$ javac -cp $(hadoop classpath) -d wordcount_classes/ WordCount.java
+prathamesh@PRATHAMESH:~/practical_b1$ ls
+WordCount.java  wordcount_classes
+
+prathamesh@PRATHAMESH:~/practical_b1$ hadoop fs -mkdir -p /map/wordcount/input
+2024-04-20 22:14:32,928 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+prathamesh@PRATHAMESH:~/practical_b1$ hadoop fs -put testdata.txt  /map/wordcount/input/
+2024-04-20 22:14:44,234 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2024-04-20 22:14:46,036 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+prathamesh@PRATHAMESH:~/practical_b1$ hadoop jar wordcount.jar  org.myorg.WordCount /map/wordcount/input/testdata.txt /map/wordcount//output/map_output
+2024-04-20 22:15:00,233 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2024-04-20 22:15:01,466 INFO client.RMProxy: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2024-04-20 22:15:01,932 INFO client.RMProxy: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2024-04-20 22:15:02,353 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2024-04-20 22:15:02,406 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/prathamesh/.staging/job_1713630346098_0003
+2024-04-20 22:15:02,601 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2024-04-20 22:15:02,863 INFO mapred.FileInputFormat: Total input files to process : 1
+2024-04-20 22:15:03,027 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2024-04-20 22:15:03,091 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2024-04-20 22:15:03,121 INFO mapreduce.JobSubmitter: number of splits:2
+2024-04-20 22:15:03,540 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2024-04-20 22:15:03,599 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1713630346098_0003
+2024-04-20 22:15:03,599 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2024-04-20 22:15:04,139 INFO conf.Configuration: resource-types.xml not found
+2024-04-20 22:15:04,140 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2024-04-20 22:15:05,592 INFO impl.YarnClientImpl: Submitted application application_1713630346098_0003
+2024-04-20 22:15:05,738 INFO mapreduce.Job: The url to track the job: http://PRATHAMESH.localdomain:8088/proxy/application_1713630346098_0003/
+2024-04-20 22:15:05,742 INFO mapreduce.Job: Running job: job_1713630346098_0003
+2024-04-20 22:15:29,761 INFO mapreduce.Job: Job job_1713630346098_0003 running in uber mode : false
+2024-04-20 22:15:29,762 INFO mapreduce.Job:  map 0% reduce 0%
+2024-04-20 22:15:44,513 INFO mapreduce.Job:  map 100% reduce 0%
+2024-04-20 22:15:54,712 INFO mapreduce.Job:  map 100% reduce 100%
+2024-04-20 22:15:56,769 INFO mapreduce.Job: Job job_1713630346098_0003 completed successfully
+2024-04-20 22:15:57,297 INFO mapreduce.Job: Counters: 54
+        File System Counters
+                FILE: Number of bytes read=1337
+                FILE: Number of bytes written=681378
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=1534
+                HDFS: Number of bytes written=833
+                HDFS: Number of read operations=11
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+                HDFS: Number of bytes read erasure-coded=0
+        Job Counters
+                Launched map tasks=2
+                Launched reduce tasks=1
+                Data-local map tasks=2
+                Total time spent by all maps in occupied slots (ms)=24763
+                Total time spent by all reduces in occupied slots (ms)=7699
+                Total time spent by all map tasks (ms)=24763
+                Total time spent by all reduce tasks (ms)=7699
+                Total vcore-milliseconds taken by all map tasks=24763
+                Total vcore-milliseconds taken by all reduce tasks=7699
+                Total megabyte-milliseconds taken by all map tasks=25357312
+                Total megabyte-milliseconds taken by all reduce tasks=7883776
+        Map-Reduce Framework
+                Map input records=7
+                Map output records=150
+                Map output bytes=1478
+                Map output materialized bytes=1343
+                Input split bytes=212
+                Combine input records=150
+                Combine output records=107
+                Reduce input groups=96
+                Reduce shuffle bytes=1343
+                Reduce input records=107
+                Reduce output records=96
+                Spilled Records=214
+                Shuffled Maps =2
+                Failed Shuffles=0
+                Merged Map outputs=2
+                GC time elapsed (ms)=334
+                CPU time spent (ms)=10380
+                Physical memory (bytes) snapshot=831639552
+                Virtual memory (bytes) snapshot=7694757888
+                Total committed heap usage (bytes)=614465536
+                Peak Map Physical memory (bytes)=305631232
+                Peak Map Virtual memory (bytes)=2562166784
+                Peak Reduce Physical memory (bytes)=222650368
+                Peak Reduce Virtual memory (bytes)=2570981376
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters
+                Bytes Read=1322
+        File Output Format Counters
+                Bytes Written=833
+
+prathamesh@PRATHAMESH:~/practical_b1$ hdfs dfs -ls /map/wordcount//output/map_output
+2024-04-20 22:18:03,016 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 2 items
+-rw-r--r--   2 prathamesh supergroup          0 2024-04-20 22:15 /map/wordcount/output/map_output/_SUCCESS
+-rw-r--r--   2 prathamesh supergroup        833 2024-04-20 22:15 /map/wordcount/output/map_output/part-00000
+
+prathamesh@PRATHAMESH:~/practical_b1$ hdfs dfs -cat /map/wordcount/output/map_output/part-00000
+2024-04-20 22:22:12,789 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2024-04-20 22:22:14,795 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+-and    1
+-because        1
+ConnectionRefused       1
+Exception       1
+Hadoop  2
+If      2
+Seeing  1
+TCP     3
+This    1
+Unless  1
+You     1
+a       5
+about.  1
+across  1
+address 1
+and     2
+anything        1
+appears 1
+application     1
+applications    1
+are     1
+at      3
+been    1
+being   2
+but     1
+cause   1
+client  1
+cluster 3
+cluster,        1
+common  2
+configuration   1
+connection      2
+consult 1
+do      1
+down    3
+dropping        1
+during  1
+either  1
+end,    1
+error   2
+firewall        1
+for     1
+get     1
+haven't 1
+in      2
+is      12
+is,     1
+isn't   1
+it      1
+know    1
+listening       1
+log,    1
+machine 1
+message 2
+more    1
+no      2
+not     3
+on      1
+or      1
+please  1
+point   1
+port    1
+program 1
+request 1
+requests.       1
+running.        1
+serious.        1
+service 1
+services        2
+shut    2
+shutdown        1
+silently        1
+specific        1
+specification.  1
+specified,      1
+stack   1
+that    1
+the     10
+themselves.     1
+then    1
+there   4
+this    3
+those   1
+to      2
+torn    1
+trace   1
+using   1
+very    1
+visible 1
+way     1
+what    1
+when    2
+which   2
+working,        1
+worry   1
+you     1
+prathamesh@PRATHAMESH:~/practical_b1$ 
