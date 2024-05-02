@@ -13,9 +13,20 @@ def select_diseases(symptoms):
 
     matching_diseases = []
     
+    # AND based expert system 
     for disease, disease_symptoms in diseases.items():
-        if any(symptom in disease_symptoms for symptom in symptoms):
+        flag = True
+        for sym in symptoms:
+            if sym not in disease_symptoms:
+                flag = False
+        if flag:
             matching_diseases.append(disease)
+                
+    # OR based expert system
+    # for disease, disease_symptoms in diseases.items():
+    #     if any(symptom in disease_symptoms for symptom in symptoms):
+    #         matching_diseases.append(disease)
+
 
     return matching_diseases
 
