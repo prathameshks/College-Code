@@ -1,3 +1,12 @@
+def copy_matrix(mat):
+    ans = []
+    for i in mat:
+        temp = []
+        for j in i:
+            temp.append(j)
+        ans.append(temp)
+    return ans
+
 def print_state(title,state,h,g=0):
     print(title)
     for row in state:
@@ -6,113 +15,144 @@ def print_state(title,state,h,g=0):
         print()
     print(f"g={g}, h={h}, f={g+h}\n")
 
+# get input
+def get_input(msg):
+    print(msg)
+    ans = []
+    ans.append(input().split(" "))
+    ans.append(input().split(" "))
+    ans.append(input().split(" "))
+    return ans
+
+def get_f(node):
+    return node.f_score
+
+def compare_matrix(a,b):
+    for i in range(3):
+        for j in range(3):
+            if(a[i][j] != b[i][j]):
+                return False
+    return True
+
 class Node:
-    def __init__(self,data,level,fval):
+    data = [[]]
+    level = 0
+    f_score = 0
+    
+    def __init__(self,data,level = 0,f_score= 0) -> None:
         self.data = data
         self.level = level
-        self.fval = fval
+        self.f_score = f_score
+        
+    def get_blank(self):
+        for i in range(3):
+            for j in range(3):
+                if self.data[i][j] == '_':
+                    return [i,j]
 
+        print("No Underscore Found")
+        exit()
+            
     def generate_child(self):
-        x,y = self.find(self.data,'_')
-        val_list = [[x,y-1],[x,y+1],[x-1,y],[x+1,y]]
+        i,j = self.get_blank()
+        
         children = []
-        for i in val_list:
-            child = self.shuffle(self.data,x,y,i[0],i[1])
-            if child is not None:
-                child_node = Node(child,self.level+1,0)
-                children.append(child_node)
+        
+        # up
+        if(i != 0):
+            mat1 = copy_matrix(self.data)
+            mat1[i-1][j],mat1[i][j] = mat1[i][j],mat1[i-1][j]
+            children.append(mat1)
+            
+        # down
+        if(i != 2):
+            mat2 = copy_matrix(self.data)
+            mat2[i+1][j],mat2[i][j] = mat2[i][j],mat2[i+1][j]
+            children.append(mat2)
+            
+        # left
+        if(j != 0):
+            mat3 = copy_matrix(self.data)
+            mat3[i][j-1],mat3[i][j] = mat3[i][j],mat3[i][j-1]
+            children.append(mat3)
+            
+        # right
+        if(j != 2):
+            mat4 = copy_matrix(self.data)
+            mat4[i][j+1],mat4[i][j] = mat4[i][j],mat4[i][j+1]
+            children.append(mat4)
+            
         return children
+    
+    def p(self):
+        print(self.data)
+        print(self.level)
+        print(self.f_score)
         
-    def shuffle(self,puz,x1,y1,x2,y2):
-        if x2 >= 0 and x2 < len(self.data) and y2 >= 0 and y2 < len(self.data):
-            temp_puz = []
-            temp_puz = self.copy(puz)
-            temp = temp_puz[x2][y2]
-            temp_puz[x2][y2] = temp_puz[x1][y1]
-            temp_puz[x1][y1] = temp
-            return temp_puz
-        else:
-            return None
-            
-
-    def copy(self,root):
-        temp = []
-        for i in root:
-            t = []
-            for j in i:
-                t.append(j)
-            temp.append(t)
-        return temp    
-            
-    def find(self,puz,x):
-        for i in range(0,len(self.data)):
-            for j in range(0,len(self.data)):
-                if puz[i][j] == x:
-                    return i,j
-
-
-class Puzzle:
-    def __init__(self,size):
-        self.n = size
-        self.open = []
-        self.closed = []
-
-    def accept(self):
-        puz = []
-        for i in range(0,self.n):
-            temp = input().split(" ")
-            puz.append(temp)
-        return puz
-
-    def f(self,start,goal):
-        return self.h(start.data,goal)+start.level
-
-    def h(self,start,goal):
-        temp = 0
-        for i in range(0,self.n):
-            for j in range(0,self.n):
-                if start[i][j] != goal[i][j] and start[i][j] != '_':
-                    temp += 1
-        return temp
+    def h(self,goal):
+        h_score = 0
+        for i in range(3):
+            for j in range(3):
+                if(self.data[i][j] != '_' and self.data[i][j] != goal[i][j]):
+                    h_score += 1
         
-
-    def process(self):
-        print("Enter the start state matrix \n")
-        start = self.accept()
-        print("Enter the goal state matrix \n")        
-        goal = self.accept()
-
-        start = Node(start,0,0)
-        start.fval = self.f(start,goal)
-        """ Put the start node in the open list"""
-        self.open.append(start)
-        print("\n\n")
-        while True:
-            cur = self.open[0]
-            
-            if(self.h(cur.data,goal) == 0):
-                print_state("Reached Goal State",cur.data,cur.fval - cur.level,cur.level)
-                break
-            print_state("State",cur.data,cur.fval - cur.level,cur.level)
-            for i in cur.generate_child():
-                i.fval = self.f(i,goal)
-                self.open.append(i)
-            self.closed.append(cur)
-            del self.open[0]
-
-            """ sort the opne list based on f value """
-            self.open.sort(key = lambda x:x.fval,reverse=False)
+        return h_score
+    
 
 
-puz = Puzzle(3)
-puz.process()
+    
 
+def main():
+    start = get_input("Enter Start Matrix")
+    goal = get_input("Enter Goal Matrix:")
+    
+    start_node = Node(start)
+    visited = [tuple(map(tuple, start))]
+    
+    arr = [start_node]
+    while True:
+        curr = arr.pop(0)
+        h_val = curr.h(goal)
+        curr.f_score = curr.level + h_val
+        if( h_val == 0):
+            print_state("Goal State Reached",curr.data,h_val,curr.level)
+            return
+        
+        print(len(visited))
+        print(len(arr))
+        print_state("Choosing State",curr.data,h_val,curr.level)
+        
+        children = curr.generate_child()
+        for child in children:
+            if tuple(map(tuple, child)) not in visited:
+                visited.append(tuple(map(tuple, child)))
+                temp_child = Node(child,curr.level+1)
+                temp_child.f_score = temp_child.level + temp_child.h(goal)
+                arr.append(temp_child)
+        
+        if(arr == []):
+            print("No Solution Found")
+            return
+        
+        arr.sort(key=get_f)
+
+
+ 
 """
 1 2 3
-8 _ 4
-7 6 5
-2 8 1
-_ 4 3
-7 6 5
+4 5 6
+7 8 _
+1 2 3
+4 5 6
+7 _ 8 
 
+
+1 2 3
+4 5 6
+7 8 _
+1 2 3
+6 5 4
+7 _ 8 
 """
+
+main()
