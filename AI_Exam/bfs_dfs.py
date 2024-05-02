@@ -26,6 +26,7 @@ class Graph:
         self.visited = [0 for i in range(self.n)]
         self.queue = [start]
         print(f"The BFS Traversal Of Graph Starting Form {start} is :")
+        self.ans = []
         self.bfs()
         print()
         self.visited = [0 for i in range(self.n)]
@@ -42,11 +43,12 @@ class Graph:
             return None
         cur = self.queue[0]
         self.queue.pop(0)
-        print(cur,end=" ")
-        self.visited[cur] = 1
-        for i in range(self.n):
-            if ((self.mat[cur][i]) and (not self.visited[i])):
-                self.queue.append(i)
+        if(not self.visited[cur]):
+            self.visited[cur] = 1
+            for i in range(self.n):
+                if ((self.mat[cur][i]) and (not self.visited[i])):
+                    self.queue.append(i)
+            print(cur,end=" ")
         self.bfs()
 
 def main():
@@ -121,4 +123,22 @@ sample input 2
 4
 6
 
+7 
+8
+0
+1
+0
+4
+0
+6
+1
+2
+4
+2
+4
+5
+6
+5
+2
+3
 """
