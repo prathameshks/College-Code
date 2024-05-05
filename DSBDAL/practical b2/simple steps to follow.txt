@@ -1,0 +1,14 @@
+1. Create a folder for practical and put LogCount.java and log_data.txt files in it
+2. To create jar file run following commands in terminal (Open in same folder created above)
+	mkdir classes
+	javac -cp $(hadoop classpath) -d classes/ LogCount.java
+	jar -cvf logcount.jar -C classes/ .
+3. create input and output folder in hadoop file system(can create manually in web UI and upload log_data.txt file in input folder)
+	hadoop fs -mkdir -p /logcount/input /logcount/output
+	hadoop fs -put log_data.txt /logcount/input/
+4. To run the program 
+	hadoop jar logcount.jar LogCount /logcount/input/log_data.txt /logcount/output/op
+5. To see output (In web UI navigate to output/op/ folder and download part-00000 file output is there) copy op folder to local and display it
+	hadoop fs -get /logcount/output/op .
+	cat op/part-00000
+
