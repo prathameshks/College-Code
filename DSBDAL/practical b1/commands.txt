@@ -4,22 +4,18 @@ start-all.sh
 mkdir practical_b1
 cd practical_b1/
 
-cat > \\wsl.localhost\Ubuntu-20.04\home\prathamesh\practical_b1\testdata.txtWordCount.java
+cat > testdata.txt
+cat > WordCount.java
 
 mkdir wordcount_classes
 
 javac -cp $(hadoop classpath) -d wordcount_classes/ WordCount.java
 jar -cvf wordcount.jar -C wordcount_classes/ .
-hdfs dfs -mkdir -p /map/wordcount/input  /map/wordcount/output
 
-cat > testdata.txt
+hadoop fs -put testdata.txt  /
 
-hadoop fs -mkdir -p /map/wordcount/input
+hadoop jar wordcount.jar  org.myorg.WordCount /testdata.txt /output
 
-hadoop fs -put testdata.txt  /map/wordcount/input/
+hdfs dfs -ls /output/
 
-hadoop jar wordcount.jar  org.myorg.WordCount /map/wordcount/input/testdata.txt /map/wordcount//output/map_output
-
-hdfs dfs -ls /map/wordcount//output/map_output
-
-hdfs dfs -cat /map/wordcount/output/map_output/part-00000
+hdfs dfs -cat /output/part-00000t

@@ -1,0 +1,16 @@
+nano yes.scala
+
+object yes
+{
+def main(args:Array[String])
+{
+var n1=10
+var n2=20
+if(n1<n2){println("Largest Number: " + n2)}
+else {println("Largest Number: "+ n1)}
+}
+}
+
+
+scalac yes.scala                ..............for compiling
+scala yes                       .................for running
